@@ -1,0 +1,10 @@
+.DS_Store
+
+# Habitat
+results/
+.studiorc
+
+# Editor
+.vscode/settings.json
+.vscode/launch.json
+
