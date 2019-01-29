@@ -1,4 +1,7 @@
 # Slack channel in Chef Software slack to send notifications about build failures, etc
+project:
+  alias: mlsa
+
 slack:
   notify_channel:
     - releng-notify
