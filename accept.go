@@ -1,8 +1,12 @@
-#!/usr/bin/env bash
+package main
 
-# Block if the MLSA was not accepted
-if ! [[ "${1}" == "true" || "${1}" == "1" ]] ; then
-  cat <<EOF
+import (
+	"fmt"
+	"os"
+	"time"
+)
+
+const licenseMsg = `
 =========================================================================
 
 Use of this Software is subject to the terms of the Chef Online Master
@@ -12,11 +16,14 @@ agreement here:
 https://www.chef.io/online-master-agreement
 
 =========================================================================
-EOF
+`
 
-  # TO INFINITY AND BEYOND!
-  while true
-  do
-    sleep 5
-  done
-fi
+func main() {
+	if len(os.Args) > 1 && (os.Args[1] == "true" || os.Args[1] == "1") {
+		os.Exit(0)
+	}
+	fmt.Print(licenseMsg)
+	for {
+		time.Sleep(5 * time.Second)
+	}
+}
