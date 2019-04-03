@@ -14,6 +14,6 @@ do_build() {
 }
 
 do_install() {
-  install -m 0755 "${SRC_PATH}/accept" "${pkg_prefix}/bin"
+  install -m 0755 "$PLAN_CONTEXT/../accept" "${pkg_prefix}/bin"
   fix_interpreter "${pkg_prefix}/bin/accept" core/busybox-static bin/env
 }
